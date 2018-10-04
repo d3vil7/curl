@@ -358,7 +358,7 @@ static DOHcode store_a(unsigned char *doh, int index, struct dohentry *d)
   if(d->numaddr < DOH_MAX_ADDR) {
     struct dohaddr *a = &d->addr[d->numaddr];
     a->type = DNS_TYPE_A;
-    a->ip.v4 = ntohl(get32bit(doh, index));
+    memcpy(&a->ip.v4, &doh[index], 4);
     d->numaddr++;
   }
   return DOH_OK;

@@ -80,7 +80,7 @@ struct cnamestore {
 struct dohaddr {
   int type;
   union {
-    unsigned int v4;
+    unsigned int v4; /* network byte order */
     struct addr6 v6;
   } ip;
 };
